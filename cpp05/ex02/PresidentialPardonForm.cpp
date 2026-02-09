@@ -28,4 +28,3 @@ void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 
 PresidentialPardonForm::PresidentialPardonForm()
     : AForm("Presidential Pardon", 25, 5), target("default_target") {}
-
