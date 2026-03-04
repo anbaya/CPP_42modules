@@ -3,7 +3,7 @@ NAME := program
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-SRCS := main.cpp functions.cpp 
+SRCS := main.cpp functions.cpp Base.cpp
 OBJS := $(SRCS:.cpp=.o)
 
 all: $(NAME)
