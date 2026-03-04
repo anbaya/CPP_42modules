@@ -6,7 +6,7 @@
 template <typename T> class Array{
     private:
         T *arr;
-        unsigned int size;
+        unsigned int _size;
     public:
         Array();
         Array(unsigned int n);
@@ -18,7 +18,7 @@ template <typename T> class Array{
             public:
                 virtual const char *what() const throw();
         };
-        unsigned int Size() const;
+        unsigned int size() const;
         
 };
 

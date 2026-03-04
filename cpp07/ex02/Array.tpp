@@ -3,14 +3,14 @@
 template <typename T>
 Array<T>::Array(){
     this->arr = NULL;
-    this->size = 0;
+    this->_size = 0;
 }
 
 template <typename T>
 Array<T>::Array(const Array &other){
-    this->arr = new T[other.size];
-    this->size = other.size;
-    for (unsigned int i = 0; i < this->size; i++){
+    this->arr = new T[other._size];
+    this->_size = other._size;
+    for (unsigned int i = 0; i < this->_size; i++){
         this->arr[i] = other.arr[i];
     }
 }
@@ -20,9 +20,9 @@ Array<T> &Array<T>::operator=(const Array &other){
     if (this != &other)
     {
         delete[] this->arr;
-        this->size = other.size;
-        this->arr = new T[this->size];
-        for (unsigned int i = 0; i < this->size; i++){
+        this->_size = other._size;
+        this->arr = new T[this->_size];
+        for (unsigned int i = 0; i < this->_size; i++){
             this->arr[i] = other.arr[i];
         }
     }
@@ -31,7 +31,7 @@ Array<T> &Array<T>::operator=(const Array &other){
 
 template <typename T>
 T &Array<T>::operator[](unsigned int index){
-    if (index >= this->size)
+    if (index >= this->_size)
         throw Array<T>::outOfRangeExeption();
     return this->arr[index];
 }
@@ -39,12 +39,12 @@ T &Array<T>::operator[](unsigned int index){
 template <typename T>
 Array<T>::Array(unsigned int n){
     this->arr = new T[n];
-    this->size = n;
+    this->_size = n;
 }
 
 template <typename T>
-unsigned int Array<T>::Size() const {
-    return this->size;
+unsigned int Array<T>::size() const {
+    return this->_size;
 }
 
 template <typename T>
