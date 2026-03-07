@@ -3,13 +3,21 @@
 
 #include <iostream>
 
-template <typename T,typename L, typename F> void iter(T *arr, L len, F func)
+template <typename T, typename F> void iter(T *arr, const size_t len, F func)
 {
-    for (L i = 0; i < len; i++){
+    for (size_t i = 0; i < len; i++){
         func(arr[i]);
     }
 }
-template <typename T> void print(T elm)
+
+template <typename T, typename F> void iter(const T *arr, const size_t len, F func)
+{
+    for (size_t i = 0; i < len; i++){
+        func(arr[i]);
+    }
+}
+
+template <typename T> void print(const T &elm)
 {
     std::cout << elm << std::endl;
 }
