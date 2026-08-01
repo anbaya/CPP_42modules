@@ -100,17 +100,14 @@ bool BitcoinExchange::_isValidDate(const std::string &date) const
 
 double BitcoinExchange::_getExchangeRate(const std::string &date) const
 {
-	// Use lower_bound to find the closest date that is not greater than the given date
 	std::map<std::string, double>::const_iterator it = _database.lower_bound(date);
 
 	if (it != _database.end() && it->first == date)
 		return it->second;
 
-	// If lower_bound points to beginning and doesn't match, no earlier date exists
 	if (it == _database.begin())
 		return -1;
 
-	// Move to the previous (lower) date
 	--it;
 	return it->second;
 }
@@ -188,13 +185,13 @@ void BitcoinExchange::processInputFile(const std::string &inputFile) const
 
 		if (value < 0)
 		{
-			std::cerr << "Error: not a positive number." << std::endl;
+			std::cerr << "Error: not a positive number => "<< trimmedLine << std::endl;
 			continue;
 		}
 
 		if (value > 1000)
 		{
-			std::cerr << "Error: too large a number." << std::endl;
+			std::cerr << "Error: too large a number => " << trimmedLine << std::endl;
 			continue;
 		}
 
