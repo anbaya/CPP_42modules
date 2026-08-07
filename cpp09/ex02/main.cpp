@@ -1,16 +1,16 @@
 #include "PmergeMe.hpp"
 
-int main(int argc, char **argv)
-{
-	try
-	{
-		PmergeMe sorter;
-		sorter.parseArgs(argc, argv);
-		sorter.sort();
-		sorter.displayResults();
+int main(int ac, char **av) {
+	if (ac < 2) {
+		std::cerr << "Error" << std::endl;
+		return 1;
 	}
-	catch (const std::exception &e)
-	{
+
+	PmergeMe sorter;
+
+	try {
+		sorter.parseAndSort(ac, av);
+	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
